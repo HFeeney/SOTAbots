@@ -13,12 +13,19 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class IntakeSubsystem extends Subsystem {
 	
 	public void takeIn() {
-		double axis = Robot.m_oi.controller.getRawAxis(4);
-		
-		RobotMap.intake1.set(axis);
-		RobotMap.intake2.set(-axis);
-		
+		double axisIn = Robot.m_oi.controller.getRawAxis(3);
+				
+		RobotMap.intake1.set(axisIn);
+		RobotMap.intake2.set(-axisIn);
 	}
+	public void takeOut() {
+		double axisOut = Robot.m_oi.controller.getRawAxis(2);
+		
+		RobotMap.intake1.set(-axisOut);
+		RobotMap.intake2.set(axisOut);
+	}
+	
+
 
 
     public void initDefaultCommand() {

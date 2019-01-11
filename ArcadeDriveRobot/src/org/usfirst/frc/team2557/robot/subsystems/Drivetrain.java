@@ -14,7 +14,7 @@ public class Drivetrain extends Subsystem {
     // here. Call these from Commands.
 
     public void Drive(double speed, double rotation) {
-    	RobotMap.diffDrive.arcadeDrive(speed, rotation);
+    	RobotMap.diffDrive.arcadeDrive(.7 * speed, .7 * rotation);
     }
     
     public void initDefaultCommand() {

@@ -16,8 +16,8 @@ public class LiftSubsystem extends Subsystem {
 	public void lift() {
 		double axis = Robot.m_oi.controller.getRawAxis(5);
 		
-		RobotMap.lift1.set(axis * .5);
-		RobotMap.lift2.set(axis * .5);
+		RobotMap.lift1.set(axis * -.5);
+		RobotMap.lift2.set(axis * -.5);
 		
 	}
     public void initDefaultCommand() {

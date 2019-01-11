@@ -21,7 +21,6 @@ import org.usfirst.frc.team2557.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2557.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2557.robot.subsystems.IntakeSubsystem;
 import org.usfirst.frc.team2557.robot.subsystems.LiftSubsystem;
-
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -36,6 +35,7 @@ public class Robot extends TimedRobot {
 	public static Drivetrain drivetrain;
 	public static IntakeSubsystem intake;
 	public static LiftSubsystem liftSub;
+	
 	
 
 	Command m_autonomousCommand;
