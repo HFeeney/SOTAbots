@@ -15,10 +15,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team2557.robot.commands.AutoCommandGroup;
+import org.usfirst.frc.team2557.robot.commands.AutoDriveCommand;
 import org.usfirst.frc.team2557.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2557.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2557.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2557.robot.subsystems.IntakeSubsystem;
+import org.usfirst.frc.team2557.robot.subsystems.LiftSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -33,6 +35,7 @@ public class Robot extends TimedRobot {
 	public static OI m_oi;
 	public static Drivetrain drivetrain;
 	public static IntakeSubsystem intake;
+	public static LiftSubsystem liftSub;
 	
 
 	Command m_autonomousCommand;
@@ -47,12 +50,16 @@ public class Robot extends TimedRobot {
 		RobotMap.init();
 	
 		drivetrain = new Drivetrain();
+		intake = new IntakeSubsystem();
+		liftSub = new LiftSubsystem();
 		
 		m_oi = new OI();
 		// m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		m_chooser.addObject("Timed Command", new AutoCommandGroup());
-		SmartDashboard.putData("Auto mode", m_chooser);
+//		SmartDashboard.putData("Auto mode", m_chooser);
+		
+		m_chooser.addDefault("Drive Forward", new AutoDriveCommand());
+		SmartDashboard.putData("Autonomous Chooser", m_chooser);
 	}
 
 	/**
@@ -104,6 +111,9 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Encoder Left!!!!!", RobotMap.bL.getSensorCollection().getQuadraturePosition());
+		SmartDashboard.putNumber("Encoder Right!!!!!", RobotMap.bR.getSensorCollection().getQuadraturePosition());
+
 	}
 
 	@Override
@@ -123,6 +133,9 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("Teleop Encoder Left!!!!!", RobotMap.bL.getSensorCollection().getQuadraturePosition());
+		SmartDashboard.putNumber("Teleop Encoder Right!!!!!", RobotMap.bR.getSensorCollection().getQuadraturePosition());
+
 	}
 
 	/**

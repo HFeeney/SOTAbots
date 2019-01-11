@@ -18,20 +18,20 @@ public class AutoDriveCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	RobotMap.fL.getSensorCollection().setQuadraturePosition(0, 10);
-    	RobotMap.fR.getSensorCollection().setQuadraturePosition(0, 10);
+    	RobotMap.bL.getSensorCollection().setQuadraturePosition(0, 10);
+    	RobotMap.bR.getSensorCollection().setQuadraturePosition(0, 10);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while (RobotMap.fL.getSensorCollection().getQuadraturePosition() < 2500 && RobotMap.fR.getSensorCollection().getQuadraturePosition() < 2500) {
-    		Robot.drivetrain.Drive(-.3, 0);
-    	}
+    
+    	Robot.drivetrain.Drive(-.5, 0);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (RobotMap.fL.getSensorCollection().getQuadraturePosition() >= 2500 && RobotMap.fR.getSensorCollection().getQuadraturePosition() >= 2500) {
+    	if (RobotMap.bL.getSensorCollection().getQuadraturePosition() >= 2500 && RobotMap.bR.getSensorCollection().getQuadraturePosition() <= -2500) {
     		return true;
     	} else {
             return false;
