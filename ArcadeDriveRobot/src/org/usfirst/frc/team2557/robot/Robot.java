@@ -7,10 +7,10 @@
 
 package org.usfirst.frc.team2557.robot;
 
-
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -21,7 +21,7 @@ import org.usfirst.frc.team2557.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2557.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2557.robot.subsystems.IntakeSubsystem;
 import org.usfirst.frc.team2557.robot.subsystems.LiftSubsystem;
-import org.usfirst.frc.team2557.robot.subsystems.pidLiftSub;
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -36,7 +36,7 @@ public class Robot extends TimedRobot {
 	public static Drivetrain drivetrain;
 	public static IntakeSubsystem intake;
 	public static LiftSubsystem liftSub;
-	public static pidLiftSub PIDLift;
+	
 	
 	
 
@@ -54,7 +54,6 @@ public class Robot extends TimedRobot {
 		drivetrain = new Drivetrain();
 		intake = new IntakeSubsystem();
 		liftSub = new LiftSubsystem();
-		PIDLift = new pidLiftSub();
 		
 		m_oi = new OI();
 		// m_chooser.addDefault("Default Auto", new ExampleCommand());
