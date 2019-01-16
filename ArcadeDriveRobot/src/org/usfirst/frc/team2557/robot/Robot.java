@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team2557.robot.commands.AutoCommandGroup;
 import org.usfirst.frc.team2557.robot.commands.AutoDriveCommand;
+import org.usfirst.frc.team2557.robot.commands.AutoTurnCommand;
 import org.usfirst.frc.team2557.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2557.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team2557.robot.subsystems.ExampleSubsystem;
@@ -60,7 +61,7 @@ public class Robot extends TimedRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 //		SmartDashboard.putData("Auto mode", m_chooser);
 		
-		m_chooser.addDefault("Drive Forward", new AutoDriveCommand());
+		m_chooser.addDefault("Drive Forward", new AutoTurnCommand());
 		SmartDashboard.putData("Autonomous Chooser", m_chooser);
 	}
 
